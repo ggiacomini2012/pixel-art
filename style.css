@@ -33,15 +33,19 @@ body {
   padding: 0;
   margin: auto;
   background-color: white;
-  width: 505px;
-  height: 505px;
+  width: 200px;
+  height: 200px;
+  border-spacing: 0;
+  border-collapse: collapse; 
 }
 
 .pixel {
   padding: 0;
-  margin: 0 2px;
+  margin: 0;
   display: inline-block;
   background-color: white;
-  width: 90px;
-  height: 90px;
+  width: 40px;
+  height: 40px;
+  border: solid black 1px;
+  border-spacing: 0;
 }
