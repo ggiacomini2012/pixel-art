@@ -7,7 +7,7 @@ referenciaColorPalette.after(criarElementoPixelBoard);
 // const elementoPixelBoard = document.querySelector('#pixel-board');
 // const elementoPixelBoardVertical = document.querySelector('.pixel');
 
-for (let ix = 0; ix < 25; ix += 1) {
+for (let index = 0; index < 25; index += 1) {
   const criarElementoPixelHorizontal = document.createElement('tr');
   criarElementoPixelHorizontal.setAttribute('class', 'pixel');
   criarElementoPixelBoard.appendChild(criarElementoPixelHorizontal);
