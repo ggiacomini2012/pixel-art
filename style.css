@@ -13,20 +13,20 @@ body {
   display: inline-block;
 }
 
-.cor1 {
+.black {
   background-color: black;
 }
 
-.cor2 {
-  background-color: rgb(130, 1, 1);
+.yellow {
+  background-color: yellow;
 }
 
-.cor3 {
-  background-color: rgb(2, 125, 2);
+.orange {
+  background-color: orange;
 }
 
-.cor4 {
-  background-color: rgb(12, 0, 120);
+.green{
+  background-color: green;
 }
 
 #pixel-board {
@@ -34,7 +34,6 @@ body {
   margin: auto;
   background-color: white;
   width: 210px;
-  /* height: 200px; */
   border-spacing: 0;
   border-collapse: collapse; 
 }
