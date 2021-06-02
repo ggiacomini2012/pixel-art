@@ -25,7 +25,7 @@ body {
   background-color: orange;
 }
 
-.green{
+.green {
   background-color: green;
 }
 
@@ -35,7 +35,7 @@ body {
   background-color: white;
   width: 210px;
   border-spacing: 0;
-  border-collapse: collapse; 
+  border-collapse: collapse;
 }
 
 .pixel {
