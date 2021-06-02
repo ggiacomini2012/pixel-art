@@ -33,7 +33,7 @@ body {
   padding: 0;
   margin: auto;
   background-color: white;
-  width: 210px;
+  /* width: 210px; */
   border-spacing: 0;
   border-collapse: collapse;
 }
