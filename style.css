@@ -3,7 +3,7 @@ body {
 }
 
 #color-palette {
-  display: inline-block;
+  display: block;
 }
 
 .color {
@@ -32,9 +32,12 @@ body {
 #pixel-board {
   padding: 0;
   margin: auto;
-  background-color: white;
+  line-height: 0px;
+  /* background-color: white; */
   border-spacing: 0;
   border-collapse: collapse;
+  /* width: 250px; */
+  /* height: 250px; */
 }
 
 .pixel {
@@ -46,4 +49,5 @@ body {
   height: 40px;
   border: solid black 1px;
   border-spacing: 0;
+  margin: 0 -1px -1px 0;
 }
