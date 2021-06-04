@@ -33,6 +33,14 @@ for (let index = 0; index < 25; index += 1) {
   createElementPixelBoard.appendChild(createElementoPixel);
 }
 
+let random = `#${Math.ceil(Math.random() * 9) * 100000 + parseInt((Math.random() * 99999), 10)}`;
+
+document.getElementsByClassName('colorTwo')[0].style.backgroundColor = random;
+random = `#${Math.ceil(Math.random() * 9) * 100000 + parseInt((Math.random() * 99999), 10)}`;
+document.getElementsByClassName('colorThree')[0].style.backgroundColor = random;
+random = `#${Math.ceil(Math.random() * 9) * 100000 + parseInt((Math.random() * 99999), 10)}`;
+document.getElementsByClassName('colorFour')[0].style.backgroundColor = random;
+
 const colorsOfThePalette = document.querySelectorAll('.color');
 
 for (let index = 0; index < colorsOfThePalette.length; index += 1) {

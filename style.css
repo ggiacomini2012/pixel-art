@@ -17,18 +17,6 @@ body {
   background-color: black;
 }
 
-.yellow {
-  background-color: yellow;
-}
-
-.orange {
-  background-color: orange;
-}
-
-.green {
-  background-color: green;
-}
-
 #pixel-board {
   padding: 0;
   margin: auto;
