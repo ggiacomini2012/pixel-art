@@ -21,16 +21,12 @@ body {
   padding: 0;
   margin: auto;
   line-height: 0px;
-  /* background-color: white; */
   border-spacing: 0;
   border-collapse: collapse;
-  /* width: 250px; */
-  /* height: 250px; */
 }
 
 .pixel {
   padding: 0;
-  margin: 0;
   display: inline-block;
   background-color: white;
   width: 40px;
