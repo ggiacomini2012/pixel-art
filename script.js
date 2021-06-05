@@ -86,7 +86,7 @@ const buttonInput = document.getElementById('generate-board');
 
 const input = document.getElementById('board-size');
 
-function bob2() {
+function buttonInputHelperOne() {
   if (Number.isNaN(parseInt(input.value, 10))) {
     alert('Board inválido!');
   }
@@ -98,7 +98,21 @@ function bob2() {
   }
 }
 
-function bub() {
+const pixels = document.getElementsByClassName('pixel');
+
+const resize = document.createElement('button');
+
+const resizeInput = document.createElement('input');
+
+resizeInput.setAttribute('type', 'number');
+
+resizeInput.setAttribute('step', '0.5');
+
+buttonInput.after(resize);
+
+resize.after(resizeInput);
+
+function buttonInputHelperTwo() {
   for (
     let index = 0;
     index < parseInt(input.value, 10) * parseInt(input.value, 10);
@@ -107,21 +121,35 @@ function bub() {
     const createElementoPixel = document.createElement('tr');
     createElementoPixel.setAttribute('class', 'pixel');
     createElementPixelBoard.appendChild(createElementoPixel);
-    // document.getElementsByClassName('pixel')[index].style.backgroundColor =
-    //   'white';
   }
 }
 
 const pixelsOnTheBoard = document.querySelectorAll('.pixel');
 
+function buttonInputHelperThree() {
+  for (let index = 0; index < pixels.length; index += 1) {
+    pixels[index].style.width = `${parseInt(resizeInput.value, 10) * 2}px`;
+    pixels[index].style.height = `${parseInt(resizeInput.value, 10) * 2}px`;
+  }
+  pixelBoard.style.width = `${
+    parseInt(resizeInput.value, 10) * 2 * parseInt(input.value, 10)
+  }px`;
+  pixelBoard.style.height = `${
+    parseInt(resizeInput.value, 10) * 2 * parseInt(input.value, 10)
+  }px`;
+}
+
 buttonInput.addEventListener('click', () => {
   pixelBoard.innerHTML = '';
-  bob2();
-  bub();
+  buttonInputHelperOne();
+  buttonInputHelperTwo();
   if (parseInt(input.value, 10) > 5) {
     const fui = (parseInt(input.value, 10) - 5) * 41;
     pixelBoard.style.width = `${205 + fui}px`;
     pixelBoard.style.heith = `${205 + fui}px`;
+  }
+  if (resizeInput.value > 0) {
+    buttonInputHelperThree();
   }
 });
 
@@ -135,9 +163,11 @@ for (let index = 0; index < pixelsOnTheBoard.length; index += 1) {
   });
 }
 
-const lib = document.querySelector('#generate-board');
-lib.addEventListener('click', () => {
-  const pixels = document.getElementsByClassName('pixel');
+let count = 0;
+
+const boardGenerate = document.querySelector('#generate-board');
+boardGenerate.addEventListener('click', () => {
+  // const pixels = document.getElementsByClassName('pixel');
   for (let index = 0; index < pixels.length; index += 1) {
     pixels[index].addEventListener('click', () => {
       const colorsOfThePaletteSelected = document.querySelector('.selected');
@@ -145,10 +175,9 @@ lib.addEventListener('click', () => {
         colorsOfThePaletteSelected,
       ).backgroundColor;
       pixels[index].style.backgroundColor = color;
-      console.log('bob');
     });
   }
-  console.log('borb');
+  count += 1;
 });
 
 input.oninput = () => {
@@ -166,13 +195,26 @@ buttonClearReference.addEventListener('click', () => {
   }
 });
 
-// input.oninput = () => {
-//     input.value = 1;
-// };
+resize.addEventListener('click', () => {
+  if (count > 0 && input.value > 0) {
+    for (let index = 0; index < pixels.length; index += 1) {
+      pixels[index].style.width = `${parseInt(resizeInput.value, 10) * 2}px`;
+      pixels[index].style.height = `${parseInt(resizeInput.value, 10) * 2}px`;
+    }
+    pixelBoard.style.width = `${
+      parseInt(resizeInput.value, 10) * 2 * parseInt(input.value, 10)
+    }px`;
+    pixelBoard.style.height = `${
+      parseInt(resizeInput.value, 10) * 2 * parseInt(input.value, 10)
+    }px`;
+  }
+});
 
-// for (let index = 0; index < pixelsOnTheBoard.length; index += 1) {
-//   pixelsOnTheBoard[index].style.width = `${parseInt(input.value, 10) * 2}px`;
-//   pixelsOnTheBoard[index].style.height = `${parseInt(input.value, 10) * 2}px`;
-// }
-// pixelBoard.style.width = `${parseInt(input.value, 10) * 10 + 10}px`;
-// pixelBoard.style.maxHeight = `${parseInt(input.value, 10) * 10 + 10}px`;
+resizeInput.oninput = () => {
+  if (parseInt(resizeInput.value, 10) < 1) {
+    resizeInput.value = 1;
+  }
+  if (parseInt(resizeInput.value, 10) > 50) {
+    resizeInput.value = 50;
+  }
+};
