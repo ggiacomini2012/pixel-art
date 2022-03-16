@@ -165,9 +165,37 @@ for (let index = 0; index < pixelsOnTheBoard.length; index += 1) {
 
 let count = 0;
 
+window.mouseDown = false;
+document.onmousedown = () => {
+  window.mouseDown = true;
+  count += 1;
+};
+document.onmouseup = () => {
+  window.mouseDown = false;
+};
+
 const boardGenerate = document.querySelector('#generate-board');
 boardGenerate.addEventListener('click', () => {
-  // const pixels = document.getElementsByClassName('pixel');
+  for (let index = 0; index < pixels.length; index += 1) {
+    let bib;
+    let bob = 1;
+    pixelBoard.addEventListener('click', () => {
+      bob += 1;
+      bib = bob % 2 === 0;
+    });
+    pixels[index].addEventListener('mouseover', () => {
+      if (bib) {
+        const colorsOfThePaletteSelected = document.querySelector('.selected');
+        const color = window.getComputedStyle(
+          colorsOfThePaletteSelected,
+        ).backgroundColor;
+        pixels[index].style.backgroundColor = color;
+      }
+    });
+  }
+});
+
+boardGenerate.addEventListener('click', () => {
   for (let index = 0; index < pixels.length; index += 1) {
     pixels[index].addEventListener('click', () => {
       const colorsOfThePaletteSelected = document.querySelector('.selected');
@@ -177,8 +205,26 @@ boardGenerate.addEventListener('click', () => {
       pixels[index].style.backgroundColor = color;
     });
   }
-  count += 1;
 });
+
+for (let index = 0; index < pixels.length; index += 1) {
+  let bib;
+  let bob = 1;
+  pixelBoard.addEventListener('click', () => {
+    bob += 1;
+    bib = bob % 2 === 0;
+  });
+  pixels[index].addEventListener('mouseover', () => {
+    if (bib) {
+      const colorsOfThePaletteSelected = document.querySelector('.selected');
+      const color = window.getComputedStyle(
+        colorsOfThePaletteSelected,
+      ).backgroundColor;
+      pixels[index].style.backgroundColor = color;
+      pixels[index].classList.add('shadow');
+    }
+  });
+}
 
 input.oninput = () => {
   if (parseInt(input.value, 10) < 1) {
