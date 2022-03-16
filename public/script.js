@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 console.clear();
 
 const colorPaletteReference = document.querySelector('#color-palette');
